@@ -1,0 +1,52 @@
+/*
+Select description 
+from crime_scene_report
+where date=20180115
+  and type="murder" 
+  and city="SQL City"
+  
+description
+
+Security footage shows 
+that there were 2 witnesses.
+The first witness lives at the 
+last house on "Northwestern Dr". 
+The second witness, named Annabel,
+lives somewhere on "Franklin Ave".
+
+--*/
+
+/*
+select sql
+from sqlite_master
+where name="person"
+
+CREATE TABLE person 
+(id integer PRIMARY KEY,
+ name text, license_id integer,
+ address_number integer, 
+ address_street_name text, 
+ ssn CHAR REFERENCES income (ssn), 
+ FOREIGN KEY (license_id) REFERENCES drivers_license (id))
+--*/
+
+/*
+select *
+from person 
+where 
+(name like "%Annabel%" and 
+ address_street_name="Franklin Ave")
+
+--id	name	license_id	address_number	address_street_name	ssn
+--16371	Annabel Miller	490173	103	Franklin Ave	318771143
+--*/
+
+/*
+select *
+from person 
+where address_street_name="Northwestern Dr"
+order by address_number desc limit 1
+
+--id	name	license_id	address_number	address_street_name	ssn
+--14887	Morty Schapiro	118009	4919	Northwestern Dr	111564949
+--*
